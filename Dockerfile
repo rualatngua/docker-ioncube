@@ -21,11 +21,11 @@ RUN cat apache.conf >> /etc/apache2/sites-available/000-default.conf && \
 RUN apt-get -y install libapache2-mod-php5 php5-mysql php5-gd
 
 # Download ioncube loader
-RUN cd /var/www/html && \
+RUN cd /var && \
     wget http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz && \
     tar zxvf ioncube_loaders_lin_x86-64.tar.gz && \
     rm ioncube_loaders_lin_x86-64.tar.gz && \
-    echo "zend_extension = /var/www/html/ioncube/ioncube_loader_lin_5.5.so" > /etc/php5/apache2/php.ini
+    echo "zend_extension = /var/ioncube/ioncube_loader_lin_5.6.so" > /etc/php5/apache2/php.ini
 
 # Run
 ADD run.sh run.sh
